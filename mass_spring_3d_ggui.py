@@ -52,9 +52,9 @@ def initialize_mesh_indices():
 
     for i, j in ti.ndrange(n, n):
         if (i // 4 + j // 4) % 2 == 0:
-            colors[i * n + j] = (0., 0.5, 1)
+            colors[i * n + j] = (0.22, 0.72, 0.52)
         else:
-            colors[i * n + j] = (1, 0.5, 0.)
+            colors[i * n + j] = (1, 0.334, 0.52)
 
 initialize_mesh_indices()
 
@@ -113,7 +113,7 @@ def update_vertices():
 window = ti.ui.Window("Taichi Cloth Simulation on GGUI", (1024, 1024),
                       vsync=True)
 canvas = window.get_canvas()
-canvas.set_background_color((0, 0, 0))
+canvas.set_background_color((1, 1, 1))
 scene = ti.ui.Scene()
 camera = ti.ui.make_camera()
 
@@ -136,13 +136,14 @@ while window.running:
     scene.set_camera(camera)
 
     scene.point_light(pos=(0, 1, 2), color=(1, 1, 1))
+    scene.ambient_light((0.5, 0.5, 0.5))
     scene.mesh(vertices,
                indices=indices,
                per_vertex_color=colors,
                two_sided=True)
 
     # Draw a smaller ball to avoid visual penetration
-    scene.particles(ball_center, radius=ball_radius * 0.95, color=(0.7, 0, 0))
+    scene.particles(ball_center, radius=ball_radius * 0.95, color=(0.5, 0.42, 0.8))
     canvas.scene(scene)
     window.show()
 
