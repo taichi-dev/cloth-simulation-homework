@@ -2,3 +2,10 @@
 2. Install taichi: `pip install --upgrade taichi`.
 3. Tweak with the code and add new features to it.
 4. Submit your work in this [issue](https://github.com/taichi-dev/cloth-simulation-homework/issues/1).
+
+
+Example:
+
+<p align="center">
+  <img src="./demo.jpg">
+</p>
