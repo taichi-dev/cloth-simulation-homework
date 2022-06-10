@@ -1,5 +1,5 @@
 import taichi as ti
-ti.init(arch=ti.gpu)  # Alternatively, ti.init(arch=ti.cpu)
+ti.init(arch=ti.vulkan)  # Alternatively, ti.init(arch=ti.cpu)
 
 n = 128
 quad_size = 1.0 / n
